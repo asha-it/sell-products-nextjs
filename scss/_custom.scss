@@ -17,6 +17,13 @@
   background-color: #3b4c92;
   color: white;
 }
+.active-sidebar {
+  color: black !important;
+  background-image: linear-gradient(white, #0071bb) !important;
+  h3 {
+    color: black !important;
+  }
+}
 .img-white {
   filter: brightness(0) invert(1);
 }
@@ -26,6 +33,26 @@
 .contaner {
   padding-left: 15vw;
   padding-right: 15vw;
+}
+.bt-primary-color {
+  height: 3rem !important;
+  background-color: #3b4c92 !important;
+  color: white !important;
+  border-radius: 5px !important;
+}
+.card-radius10 {
+  border-top-left-radius: 10px !important;
+  border-top-right-radius: 10px !important;
+  border-bottom-left-radius: 10px !important;
+  border-bottom-right-radius: 10px !important;
+}
+.card-top-radius10 {
+  border-top-left-radius: 10px !important;
+  border-top-right-radius: 10px !important;
+}
+.card-bottom-radius10 {
+  border-bottom-left-radius: 10px !important;
+  border-bottom-right-radius: 10px !important;
 }
 @media only screen and (max-width: 1024px) {
   .contaner {

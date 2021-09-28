@@ -1,0 +1,10 @@
+.card-product > .ant-card {
+  border-radius: 10px !important;
+  .ant-card-cover img {
+    border-radius: 10px 10px 0 0 !important;
+  }
+}
+.back-layout > .ant-layout-header,
+.ant-layout-sider {
+  background-color: #3b4c92 !important;
+}

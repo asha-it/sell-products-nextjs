@@ -20,7 +20,7 @@ function BackLayout({ children, title = "" }: Props) {
   const [active, setActive] = useState(currentRoute);
   const menuList = [
     {
-      name: "แผงควบคุม",
+      name: "Dashboard",
       icon: (
         <DashboardOutlined
           style={{
@@ -28,10 +28,10 @@ function BackLayout({ children, title = "" }: Props) {
           }}
         />
       ),
-      path: "/backoffice",
+      path: "/backoffice/",
     },
     {
-      name: "จัดการสินค้า",
+      name: "Products Manage",
       icon: (
         <GiftOutlined
           style={{
@@ -42,7 +42,7 @@ function BackLayout({ children, title = "" }: Props) {
       path: "/backoffice/products",
     },
     {
-      name: "จัดการออเดอร์",
+      name: "Order Manage",
       icon: (
         <FormOutlined
           style={{
@@ -75,7 +75,9 @@ function BackLayout({ children, title = "" }: Props) {
                   <div
                     className={
                       "color-white border-radius-10 text-center px-1 py-2 pointer " +
-                      (item.path === active ? "active-sidebar" : "")
+                      (item.path.split("/")[2] === (active.split("/")[2] || "")
+                        ? "active-sidebar"
+                        : "")
                     }
                     onClick={() => {
                       setActive(item.name), Router.push(item.path);

@@ -21,13 +21,7 @@ const BackHeader = () => {
         </Link>
         <div className="d-flex items-center h-100">
           <Link href="/cart">
-            <div>
-              <Badge count={4}>
-                <ShoppingCartOutlined
-                  style={{ fontSize: "25px", color: "white" }}
-                />
-              </Badge>
-            </div>
+            <div className="color-white">Mumad-asha Barateh</div>
           </Link>
           <Link href="/backoffice">
             <div>

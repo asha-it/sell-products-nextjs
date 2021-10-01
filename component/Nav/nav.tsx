@@ -3,8 +3,13 @@ import Link from "next/link";
 import Image from "next/image";
 import { Badge } from "antd";
 import { ShoppingCartOutlined, UserOutlined } from "@ant-design/icons";
+import { useRecoilState } from "recoil";
+import { Cart } from "../../lib/recoil-atom";
 
 const nav = () => {
+  const [cart] = useRecoilState(Cart);
+  let cartList = cart.filter((item) => item.no !== "init");
+
   return (
     <>
       <div className="nav-bar d-flex justify-between items-center w-100 mx-0">
@@ -21,8 +26,8 @@ const nav = () => {
         </Link>
         <div className="d-flex items-center h-100">
           <Link href="/cart">
-            <div>
-              <Badge count={4}>
+            <div className="pointer">
+              <Badge count={cartList ? cartList.length : 0}>
                 <ShoppingCartOutlined
                   style={{ fontSize: "25px", color: "white" }}
                 />
@@ -30,7 +35,7 @@ const nav = () => {
             </div>
           </Link>
           <Link href="/backoffice">
-            <div>
+            <div className="pointer">
               <UserOutlined style={{ fontSize: "25px", marginLeft: "1rem" }} />
             </div>
           </Link>

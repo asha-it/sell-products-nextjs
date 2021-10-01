@@ -2,105 +2,26 @@ import Image from "next/image";
 import { Card, Col, Row } from "antd";
 import { ShoppingCartOutlined } from "@ant-design/icons";
 import Layout from "../containers/Layout";
+import { useRecoilState } from "recoil";
+import { Product, Cart } from "../lib/recoil-atom";
+import { IProduct } from "../interface/interface";
 const Home = () => {
-  const products = [
-    {
-      id: 1,
-      name: "product1",
-      price: 1200,
-      desc: "product...",
-      img: "/product/p1.jpg",
-    },
-    {
-      id: 2,
-      name: "product2",
-      price: 1200,
-      desc: "product...",
-      img: "/product/p1.jpg",
-    },
-    {
-      id: 3,
-      name: "product3",
-      price: 1200,
-      desc: "product...",
-      img: "/product/p1.jpg",
-    },
-    {
-      id: 4,
-      name: "product4",
-      price: 1200,
-      desc: "product...",
-      img: "/product/p1.jpg",
-    },
-    {
-      id: 5,
-      name: "product5",
-      price: 1200,
-      desc: "product...",
-      img: "/product/p1.jpg",
-    },
-    {
-      id: 6,
-      name: "product6",
-      price: 1200,
-      desc: "product...",
-      img: "/product/p1.jpg",
-    },
-    {
-      id: 7,
-      name: "product7",
-      price: 1200,
-      desc: "product...",
-      img: "/product/p1.jpg",
-    },
-    {
-      id: 8,
-      name: "product8",
-      price: 1200,
-      desc: "product...",
-      img: "/product/p1.jpg",
-    },
-    {
-      id: 9,
-      name: "product9",
-      price: 1200,
-      desc: "product...",
-      img: "/product/p1.jpg",
-    },
-    {
-      id: 10,
-      name: "product10",
-      price: 1200,
-      desc: "product...",
-      img: "/product/p1.jpg",
-    },
-    {
-      id: 11,
-      name: "product11",
-      price: 1200,
-      desc: "product...",
-      img: "/product/p1.jpg",
-    },
-    {
-      id: 12,
-      name: "product12",
-      price: 1200,
-      desc: "product...",
-      img: "/product/p1.jpg",
-    },
-  ];
+  const [productList] = useRecoilState(Product);
+  const [cart, setCart] = useRecoilState(Cart);
+  const HandleSelet = (data: IProduct) => [setCart([...cart, data])];
+
   return (
     <Layout title="Home">
       <Row className="contaner pt-5 mx-0" gutter={[12, 12]}>
-        {products.map((item) => {
+        {productList.map((item) => {
           return (
-            <Col lg={6} sm={8} xs={12} key={String(item.id)}>
+            <Col lg={6} sm={8} xs={12} key={String(item.no)}>
               <div className="card-product">
                 <Card
                   hoverable
                   cover={
                     <Image
-                      src={item.img}
+                      src={"/product/p1.jpg"}
                       width={6}
                       height={4}
                       layout="responsive"
@@ -108,13 +29,18 @@ const Home = () => {
                     ></Image>
                   }
                 >
-                  <h3 className="tw-b">{item.name}</h3>
-                  <h4 className="color-grey">{item.desc}</h4>
-                  <div className="d-flex justify-between items-center w-100">
-                    <h3 className="color-primary tw-b">฿ {item.price}</h3>
-                    <ShoppingCartOutlined
-                      style={{ color: "#0071bb", fontSize: "25px" }}
-                    />
+                  <div className="position-product-card">
+                    <div>
+                      <h3 className="tw-b">{item.name}</h3>
+                      <h4 className="color-grey text-3-row">{item.detail}</h4>
+                    </div>
+                    <div className="d-flex justify-between items-center w-100">
+                      <h3 className="color-primary tw-b">฿ {item.price}</h3>
+                      <ShoppingCartOutlined
+                        style={{ color: "#0071bb", fontSize: "25px" }}
+                        onClick={() => HandleSelet(item)}
+                      />
+                    </div>
                   </div>
                 </Card>
               </div>

@@ -40,6 +40,12 @@
   color: white !important;
   border-radius: 5px !important;
 }
+.bt-danger-color {
+  height: 3rem !important;
+  background-color: #f20202 !important;
+  color: white !important;
+  border-radius: 5px !important;
+}
 .card-radius10 {
   border-top-left-radius: 10px !important;
   border-top-right-radius: 10px !important;
@@ -54,11 +60,44 @@
   border-bottom-left-radius: 10px !important;
   border-bottom-right-radius: 10px !important;
 }
-@media only screen and (max-width: 1024px) {
-  .contaner {
-    padding-left: 5vw !important;
-    padding-right: 5vw !important;
-  }
+.bt-view {
+  background-color: #3b4c92 !important;
+  color: white !important;
+  border-radius: 5px;
+}
+.bt-del {
+  background-color: #f20202 !important;
+  color: white !important;
+  border-radius: 5px;
+}
+.bt-edit {
+  background-color: rgb(212, 189, 189) !important;
+  color: black !important;
+  border-radius: 5px;
+}
+.text-1-row {
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+.text-2-row {
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+.text-3-row {
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+.position-product-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 9rem;
 }
 @media only screen and (max-width: 1024px) {
   .contaner {
